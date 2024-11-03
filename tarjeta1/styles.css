@@ -1,0 +1,149 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* estilo body con fuente, color de fondo y centra los elementos */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #025a5a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* contenedor flexible y centrado */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Estilo tarjeta*/
+.card {
+    background: rgba(168, 0, 0, 0.384);
+    border: 2px solid transparent;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 40px;
+    width: 300px;
+    text-align: center;
+    position: relative;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+}
+
+/* hover  tarjeta */
+.card:hover {
+    border-color: #0474ec;
+    box-shadow: 0 20px 50px rgba(253, 253, 253, 0.5);
+}
+
+/* Imagen dentro tarjeta */
+.profile-image {
+    width: 200px;
+    height: 200px;
+    background: url('profile-placeholder.png') no-repeat center/cover;
+    border-radius: 10%;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* superposición al hacer hover en la imagen de perfil */
+.profile-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 100%;
+    background: rgba(199, 195, 195, 0.5);
+    transition: opacity 0.3s;
+}
+
+.profile-image:hover::before {
+    opacity: 50%;
+}
+
+/*línea decorativa */
+.name {
+    margin: 50px 20px;
+    position: relative;
+}
+
+.name::before {
+    content: '';
+    display: block;
+    height: 3px;
+    background: #007bff;
+    margin:10px auto;
+    width: 90%;
+}
+
+/* Margen entre descripcion y button*/
+.description {
+    margin: 10px 0;
+}
+
+/* Botón de información */
+.info-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.info-button:hover {
+    background-color: #0056b3;
+}
+
+.info-button:focus {
+    outline: 1px solid #ffcc00;
+    outline-offset: 2px;
+}
+
+/* Información que aparece en el botón */
+.additional-info {
+    display: none;
+    position: absolute;
+}
+
+.info-button:hover + .additional-info {
+    display: block;
+    transition: opacity 0.3s;
+}
+
+/* Estilo de una etiqueta "nueva" en la esquina de la tarjeta */
+.new-tag {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background: #28a745;
+    color: white;
+    padding: 2px;
+    border-radius: 3px;
+    font-size: 0.8em;
+}
+
+/* Colores alternados en las tarjetas */
+.card:nth-child(odd) {
+    background-color: #f8f9fa;
+}
+
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
